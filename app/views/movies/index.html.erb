@@ -26,8 +26,8 @@
         <td><%= movie.duration %></td>
         <td><%= movie.description %></td>
         <td>
-          <% if Director.find_by(:id => movie.director_id) != nil %>
-            <%= Director.find_by(:id => movie.director_id).name %>
+          <% if movie.director != nil %>
+            <%= movie.director.name %>
           <% else %>
             No director selected
           <% end %>

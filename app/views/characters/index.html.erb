@@ -18,13 +18,13 @@
       <% @characters.each do |character| %>
       <tr>
         <td>
-          <% if Movie.find_by(:id => character.movie_id) != nil %>
-          <%= Movie.find_by(:id => character.movie_id).title %>
+          <% if character.movie != nil %>
+          <%= character.movie.title %>
           <% else %>
           No movie selected
           <% end %>
         </td>
-        <td><%= Actor.find_by(:id => character.actor_id).try(:name) %></td>
+        <td><%= character.actor.try(:name) %></td>
         <td><%= character.name %></td>
         <td>
           <a href="/characters/<%= character.id %>" class="btn btn-primary">Show</a>

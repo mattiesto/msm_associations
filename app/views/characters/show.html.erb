@@ -10,7 +10,7 @@
 
       <dt>Actor</dt>
       <dd>
-        <%= Actor.find_by(:id => @character.actor_id).try(:name) %>
+        <%= @character.actor.try(:name) %>
       </dd>
 
       <dt>Name</dt>
