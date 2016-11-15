@@ -7,13 +7,12 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-
+    @character = Character.new
     render("movies/show.html.erb")
   end
 
   def new
     @movie = Movie.new
-
     render("movies/new.html.erb")
   end
 
@@ -67,7 +66,7 @@ class MoviesController < ApplicationController
     @movie.destroy
 
     if URI(request.referer).path == "/movies/#{@movie.id}"
-      redirect_to("/", :notice => "Movie deleted.")
+      redirect_to("/movies", :notice => "Movie deleted.")
     else
       redirect_to(:back, :notice => "Movie deleted.")
     end

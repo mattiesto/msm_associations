@@ -63,7 +63,7 @@ class DirectorsController < ApplicationController
     @director.destroy
 
     if URI(request.referer).path == "/directors/#{@director.id}"
-      redirect_to("/", :notice => "Director deleted.")
+      redirect_to("/directors", :notice => "Director deleted.")
     else
       redirect_to(:back, :notice => "Director deleted.")
     end
